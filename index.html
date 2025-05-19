@@ -61,9 +61,19 @@ function ejemploArray() {
       <h2>8. Sentencias de control</h2>
       <pre><code>
 function ejemploIf() {
-  var nota = parseInt(document.getElementById("notaInput").value);
-  if (nota >= 5) alert("Aprobado");
-  else alert("Suspendido");
+  var estacion = parseInt(document.getElementById("estacionInput").value);
+  if (estacion >=4 && estacion <=6) {
+    alert("Primavera");
+    }
+  if (estacion >=7 && estacion <=9) {
+    alert("Verano");
+    }
+  if (estacion >=10 && estacion <=12) {
+    alert("Otoño");
+    }
+     else {
+    alert("Invierno");
+  }
 }
 
 function ejemploFor() {
@@ -100,7 +110,7 @@ function ejemploWhile() {
     </div>
     <div class="contenido">
       <p><strong>IF</strong></p>
-      <label>Nota: <input type="number" id="notaInput"></label>
+      <label>Numero estacion <input type="number" id="estacionInput"></label>
       <button onclick="ejemploIf()">Ver ejemplo</button>
 
       <p><strong>FOR</strong></p>
