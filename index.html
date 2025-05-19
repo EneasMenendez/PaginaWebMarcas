@@ -3,56 +3,143 @@
 <head>
   <meta charset="UTF-8">
   <title>Funciones Básicas en JavaScript</title>
-  <link rel="stylesheet" href="css/styles.css">
-    <script src="js/script.js"></script>
+  <link rel="stylesheet" href="css/styles.css"> 
+  <script defer src="js/script.js"></script>
 </head>
 <body>
 
   <h1>Funciones Básicas en JavaScript</h1>
 
-  <section>
-    <h2>6. Definición de Variables</h2>
 
-    <label>Introduce un número: <input type="number" id="numeroInput"></label>
-    <label>Introduce una cadena: <input type="text" id="cadenaInput"></label>
-    <label>¿Es estudiante? (true/false): <input type="text" id="booleanoInput"></label>
-    <button onclick="ejemploVariables()">Ver ejemplo</button>
+  <section class="seccion-flex">
+    <div class="texto-lateral">
+      <h2>6. Definición de Variables</h2>
+      <pre><code>
+function ejemploVariables() {
+  var numero = parseFloat(document.getElementById("numeroInput").value);
+  var cadena = document.getElementById("cadenaInput").value;
+  var booleanoTexto = document.getElementById("booleanoInput").value.trim().toLowerCase();
+  var booleano = booleanoTexto === "true";
+  alert(`Número: ${numero}\nCadena: ${cadena}\nBooleano: ${booleano}`);
+}
+      </code></pre>
+    </div>
+    <div class="contenido">
+      <label>Número: <input type="number" id="numeroInput"></label>
+      <label>Cadena: <input type="text" id="cadenaInput"></label>
+      <label>Booleano (true/false): <input type="text" id="booleanoInput"></label>
+      <button onclick="ejemploVariables()">Ver ejemplo</button>
+    </div>
   </section>
 
-  <section>
-    <h2>7. Arrays unidimensionales</h2>
-    <label>Escribe elementos separados por coma: <input type="text" id="arrayInput" placeholder="manzana,pera,uva"></label>
-    <label>Índice a mostrar: <input type="number" id="indiceInput" min="0"></label>
-    <button onclick="ejemploArray()">Ver ejemplo</button>
+
+  <section class="seccion-flex">
+    <div class="texto-lateral">
+      <h2>7. Arrays unidimensionales</h2>
+      <pre><code>
+function ejemploArray() {
+  var arrayTexto = document.getElementById("arrayInput").value;
+  var indice = parseInt(document.getElementById("indiceInput").value);
+  var array = arrayTexto.split(",").map(e => e.trim());
+  if (indice >= 0 && indice < array.length) {
+    alert(`Elemento en la posición ${indice}: ${array[indice]}`);
+  } else {
+    alert("Índice fuera de rango");
+  }
+}
+      </code></pre>
+    </div>
+    <div class="contenido">
+      <label>Elementos separados por coma: <input type="text" id="arrayInput"></label>
+      <label>Índice: <input type="number" id="indiceInput"></label>
+      <button onclick="ejemploArray()">Ver ejemplo</button>
+    </div>
   </section>
 
-  <section>
-    <h2>8. Sentencias de control</h2>
+  <section class="seccion-flex">
+    <div class="texto-lateral">
+      <h2>8. Sentencias de control</h2>
+      <pre><code>
+function ejemploIf() {
+  var nota = parseInt(document.getElementById("notaInput").value);
+  if (nota >= 5) alert("Aprobado");
+  else alert("Suspendido");
+}
 
-    <p><strong>IF</strong></p>
-    <label>Introduce una nota: <input type="number" id="notaInput"></label>
-    <button onclick="ejemploIf()">Ver ejemplo</button>
+function ejemploFor() {
+  var repeticiones = parseInt(document.getElementById("forInput").value);
+  var salida = "";
+  for (var i = 0; i < repeticiones; i++) {
+    salida += i + " ";
+  }
+  alert("FOR: " + salida);
+}
 
-    <p><strong>FOR</strong></p>
-    <label>Repeticiones del bucle: <input type="number" id="forInput"></label>
-    <button onclick="ejemploFor()">Ver ejemplo</button>
+function ejemploSwitch() {
+  var dia = document.getElementById("switchInput").value.toLowerCase();
+  switch (dia) {
+    case "lunes": alert("1º dia de la semana"); break;
+    case "viernes": alert("5º dia de la semana"); break;
+    case "sabado":
+    case "domingo": alert("7º dia de la semana"); break;
+    default: alert("Media semana");
+  }
+}
 
-    <p><strong>SWITCH</strong></p>
-    <label>Día de la semana: <input type="text" id="switchInput"></label>
-    <button onclick="ejemploSwitch()">Ver ejemplo</button>
+function ejemploWhile() {
+  var veces = parseInt(document.getElementById("whileInput").value);
+  var contador = 0;
+  var salida = "";
+  while (contador < veces) {
+    salida += contador + " ";
+    contador++;
+  }
+  alert("WHILE: " + salida);
+}
+      </code></pre>
+    </div>
+    <div class="contenido">
+      <p><strong>IF</strong></p>
+      <label>Nota: <input type="number" id="notaInput"></label>
+      <button onclick="ejemploIf()">Ver ejemplo</button>
 
-    <p><strong>WHILE</strong></p>
-    <label>Veces a repetir: <input type="number" id="whileInput"></label>
-    <button onclick="ejemploWhile()">Ver ejemplo</button>
+      <p><strong>FOR</strong></p>
+      <label>Repeticiones: <input type="number" id="forInput"></label>
+      <button onclick="ejemploFor()">Ver ejemplo</button>
+
+      <p><strong>SWITCH</strong></p>
+      <label>Día: <input type="text" id="switchInput"></label>
+      <button onclick="ejemploSwitch()">Ver ejemplo</button>
+
+      <p><strong>WHILE</strong></p>
+      <label>Veces: <input type="number" id="whileInput"></label>
+      <button onclick="ejemploWhile()">Ver ejemplo</button>
+    </div>
   </section>
 
-  <section>
-    <h2>9. Transferencia de control</h2>
-    <label>Límite del bucle: <input type="number" id="breakInput"></label>
-    <label>Valor de ruptura: <input type="number" id="breakStop"></label>
-    <button onclick="ejemploBreak()">Ver ejemplo</button>
-  </section>
 
+  <section class="seccion-flex">
+    <div class="texto-lateral">
+      <h2>9. Transferencia de control</h2>
+      <pre><code>
+function ejemploBreak() {
+  var limite = parseInt(document.getElementById("breakInput").value);
+  var cortarEn = parseInt(document.getElementById("breakStop").value);
+  var salida = "";
+  for (var i = 0; i < limite; i++) {
+    if (i === cortarEn) break;
+    salida += i + " ";
+  }
+  alert("BREAK: " + salida);
+}
+      </code></pre>
+    </div>
+    <div class="contenido">
+      <label>Límite: <input type="number" id="breakInput"></label>
+      <label>Valor del "break": <input type="number" id="breakStop"></label>
+      <button onclick="ejemploBreak()">Ver ejemplo</button>
+    </div>
+  </section>
 
 </body>
 </html>

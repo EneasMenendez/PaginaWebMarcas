@@ -1,16 +1,16 @@
 function ejemploVariables() {
-  let numero = parseFloat(document.getElementById("numeroInput").value);
-  let cadena = document.getElementById("cadenaInput").value;
-  let booleanoTexto = document.getElementById("booleanoInput").value.trim().toLowerCase();
-  let booleano = booleanoTexto === "true";
+  var numero = parseFloat(document.getElementById("numeroInput").value);
+  var cadena = document.getElementById("cadenaInput").value;
+  var booleanoTexto = document.getElementById("booleanoInput").value.trim().toLowerCase();
+  var booleano = booleanoTexto === "true";
 
-  alert(`Número: ${numero}\nCadena: ${cadena}\nBooleano: ${booleano}`);
+  alert(`Número: ${numero}  \nCadena: ${cadena}\nBooleano: ${booleano}`);
 }
 
 function ejemploArray() {
-  let arrayTexto = document.getElementById("arrayInput").value;
-  let indice = parseInt(document.getElementById("indiceInput").value);
-  let array = arrayTexto.split(",").map(e => e.trim());
+  var arrayTexto = document.getElementById("arrayInput").value;
+  var indice = parseInt(document.getElementById("indiceInput").value);
+  var array = arrayTexto.split(",").map(e => e.trim());
 
   if (indice >= 0 && indice < array.length) {
     alert(`Elemento en la posición ${indice}: ${array[indice]}`);
@@ -20,45 +20,52 @@ function ejemploArray() {
 }
 
 function ejemploIf() {
-  let nota = parseFloat(document.getElementById("notaInput").value);
-  if (nota >= 5) {
-    alert("Aprobado");
-  } else {
-    alert("Suspendido");
+  var estacion = parseInt(document.getElementById("estacionInput").value);
+  if (estacion >=4 && estacion <=6) {
+    alert("Primavera");
+    }
+  if (estacion >=7 && estacion <=9) {
+    alert("Verano");
+    }
+  if (estacion >=10 && estacion <=12) {
+    alert("Otoño");
+    }
+     else {
+    alert("Invierno");
   }
 }
 
 function ejemploFor() {
-  let repeticiones = parseInt(document.getElementById("forInput").value);
-  let salida = "";
-  for (let i = 0; i < repeticiones; i++) {
+  var repeticiones = parseInt(document.getElementById("forInput").value);
+  var salida = "";
+  for (var i = 0; i < repeticiones; i++) {
     salida += i + " ";
   }
   alert("FOR: " + salida);
 }
 
 function ejemploSwitch() {
-  let dia = document.getElementById("switchInput").value.toLowerCase();
+  var dia = document.getElementById("switchInput").value.toLowerCase();
   switch (dia) {
     case "lunes":
-      alert("Inicio de semana");
+      alert("1º dia de la semana");
       break;
     case "viernes":
-      alert("¡Casi es fin de semana!");
+      alert("5º dia de la semana");
       break;
-    case "sábado":
-    case "domingo":
-      alert("Fin de semana");
+    case "Sabado":
+    case "Domingo":
+      alert("7º dia de la semana");
       break;
     default:
-      alert("Día normal");
+      alert("Media semana");
   }
 }
 
 function ejemploWhile() {
-  let veces = parseInt(document.getElementById("whileInput").value);
-  let contador = 0;
-  let salida = "";
+  var veces = parseInt(document.getElementById("whileInput").value);
+  var contador = 0;
+  var salida = "";
   while (contador < veces) {
     salida += contador + " ";
     contador++;
@@ -67,12 +74,12 @@ function ejemploWhile() {
 }
 
 function ejemploBreak() {
-  let limite = parseInt(document.getElementById("breakInput").value);
-  let cortarEn = parseInt(document.getElementById("breakStop").value);
-  let salida = "";
+  var limite = parseInt(document.getElementById("breakInput").value);
+  var cortarEn = parseInt(document.getElementById("breakStop").value);
+  var salida = "";
 
-  for (let i = 0; i < limite; i++) {
-    if (i === cortarEn) break;
+  for (var i = 0; i < limite; i++) {
+    if (i ===  cortarEn) break;
     salida += i + " ";
   }
 
